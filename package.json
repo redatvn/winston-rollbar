@@ -1,12 +1,12 @@
 {
-  "name": "winston-transport-rollbar",
-  "description": "An updated and actively maintained rollbar transport for winston",
-  "version": "2.4.0",
-  "author": "Elliott Spira <elliottspira@gmail.com> (https://gorillastack.com)",
+  "name": "winston-transport-rollbar-3",
+  "description": "An updated rollbar transport for winston",
+  "version": "3.0.0",
+  "author": "Andreas Zoellner",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GorillaStack/winston-rollbar.git"
+    "url": "git+https://github.com/zoellner/winston-rollbar.git"
   },
   "keywords": [
     "logging",
@@ -17,17 +17,20 @@
   ],
   "dependencies": {
     "cycle": "^1.0.3",
-    "rollbar": "^2.4.0"
+    "rollbar": "^2.5.0",
+    "winston-transport": "^4.2.0"
   },
-  "devDependencies": {
-    "vows": "^0.8.2",
-    "winston": "^2.3.1"
-  },
+  "devDependencies": {},
   "main": "./lib/rollbar_transport",
-  "scripts": {
-    "test": "vows test/*test.js --spec"
-  },
+  "scripts": {},
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 8.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/zoellner/winston-rollbar/issues"
+  },
+  "homepage": "https://github.com/zoellner/winston-rollbar#readme",
+  "directories": {
+    "lib": "lib"
   }
 }

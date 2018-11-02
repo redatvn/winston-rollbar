@@ -1,6 +1,6 @@
-# winston-transport-rollbar [![Build Status](https://secure.travis-ci.org/GorillaStack/winston-rollbar.png)](http://travis-ci.org/GorillaStack/winston-rollbar)
+# winston-transport-rollbar-3
 
-Forked from https://github.com/Ideame/winston-rollbar and updated to support latest reporter and maintain longer term.
+Forked from previous versions, simplified, and updated to support winston@3.
 
 A [rollbar](https://rollbar.com) transport for [winston](https://github.com/winstonjs/winston).
 
@@ -8,38 +8,25 @@ A [rollbar](https://rollbar.com) transport for [winston](https://github.com/wins
 
 ``` sh
   $ npm install winston
-  $ npm install winston-transport-rollbar
+  $ npm install winston-transport-rollbar-3
 ```
 
-## ES6 usage
-``` js
-import winston from 'winston';
-import { Rollbar } from 'winston-transport-rollbar';
+## usage
 
-winston.add(winston.transports.Rollbar, options);
-// or
-const logger = new winston.Logger({ transports: [new Rollbar({
-    rollbarConfig: {
-      accessToken: serverAccessToken,
-      environment: environment,
-      reportLevel: reportLevel,
-    },
-  })]
+``` js
+const {createLogger} = require('winston');
+const RollbarTransport = require('winston-transport-rollbar-3');
+
+const rollbarConfig = {};
+
+const logger = createLogger({
+  transports: [
+    new RollbarTransport({
+      rollbarConfig,
+      level
+    })
+  ]
 });
-```
-
-## ES5 usage
-
-``` js
-var winston = require('winston');
-
-//
-// Requiring `winston-rollbar` will expose
-// `winston.transports.Rollbar`
-//
-require('winston-transport-rollbar').Rollbar;
-
-winston.add(winston.transports.Rollbar, options);
 ```
 
 ## Options
@@ -47,6 +34,5 @@ winston.add(winston.transports.Rollbar, options);
 The Rollbar transport uses the universal [rollbar.js](https://github.com/rollbar/rollbar.js) library behind the scenes.  Options are the following:
 
 * **rollbarConfig**:        Rollbar configuration ([more info](https://rollbar.com/docs/notifier/node_rollbar/#configuration-reference)) (mandatory, must contain rollbarAccessToken)
-* **metadataAsRequest**:    Uses metadata object as Rollbar's request parameter. (default: **false** will send for **meta.req** if provided)
 * **level**:                Level of messages this transport should log. (default: **warn**).
-* **silent**:               Boolean flag indicating whether to suppress output (default: **false**).
+
