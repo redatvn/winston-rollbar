@@ -1,3 +1,16 @@
+3.1.0 / 2019-05-14
+==================
+  * dependency updates
+
+3.0.2 / 2019-03-13
+==================
+  * Fix stream not being flushed (@xzyfer)
+
+3.0.1 / 2018-11-01
+==================
+  * simplified and updated for winston@3
+  * separate npm package `winston-transport-rollbar-3`
+
 0.6.2 / 2016-08-23
 ==================
   * updated rollbar reference to 0.6.2
